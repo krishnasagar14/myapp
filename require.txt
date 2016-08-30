@@ -1,0 +1,11 @@
+************ Twitter API Django Application *************
+
+Requirements:
+    Below pythonic packages are apt before running this project:
+    1. Django@1.9.7
+    2. oauth2@1.9.0
+    3. json@2.0.9
+    4. urllib@1.17
+    5. requests@2.2.1
+
+*********************************************************

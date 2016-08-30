@@ -1,0 +1,73 @@
+#ProfileContainer {
+    height:auto;
+    width:auto;
+}
+#PNames {
+    width: 560px;
+    display: block;
+    margin: auto;
+    background-color: #3498db;
+    text-shadow: #2084c7 1px 1px 0;
+    padding: 1em 0 !important;
+    color: white;
+    text-align: center;
+    margin-top: 1em;
+    font-family: "Lato";
+    font-size: 1.6em;
+    -moz-border-radius-topleft: 8px;
+    -webkit-border-top-left-radius: 8px;
+    border-top-left-radius: 8px;
+    -moz-border-radius-topright: 8px;
+    -webkit-border-top-right-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+}
+#Pfollowers {
+    text-align:center;
+    position: relative;
+    color: green;
+}
+#TweetCon {
+    width: 50%;
+    padding: .5em 1em;
+    line-height: 1.4em;
+    padding: 20px;
+    background-color: #ecf0f1;
+    position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    text-align: left;
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+}
+.divCon {
+    width:70%;
+    height:auto;
+    float:left;
+}
+.divCon1 {
+    height:auto;
+    float:left;
+    display: inline-block;
+    text-align:center;
+    padding-top:50px;
+}
+.buttons {
+
+    background-color:#55ACEE;
+    padding: 5 5 5 5;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    float:center;
+}
+#TBox {
+    width:300px;
+}

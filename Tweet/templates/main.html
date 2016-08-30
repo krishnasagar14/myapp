@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>Tweet Page</title>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Tweet.css' %}" />
+</head>
+<body>
+    <div id="container">
+    {% if content %}
+        {% if data %}
+            <div id="ProfileContainer" style="background-image: url('{{ content.0.user.profile_background_image_url_https }}');">
+                <img src="{{ content.0.user.profile_image_url_https }}" alt="ProfilePic" height="100" width="100"></img>
+                <h3><a id = "PNames" href="https://twitter.com/{{data}}" target="_blank">{{content.0.user.name}} : @{{data}}</a> </h3>
+                <a id= "Pfollowers">FOLLOWERS <b>{{content.0.user.followers_count}}</b> &nbsp; &nbsp; &nbsp; FOLLOWING <b>{{content.0.user.friends_count}}</b> &nbsp; &nbsp; &nbsp; LIKES <b>{{content.0.user.favourites_count}}</b></a>
+
+            </div>
+        {% endif %}
+        <div class="divCon">
+        <ul>
+        Recent 50 Tweets!
+        {% for t in content %}
+            <li><div id="TweetCon"><a id="TweetAnchor" target="_blank" href="{{ t.entities.urls.0.url }}">{{ t.text }}</a>
+                {{ t.created_at }}</div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div class="divCon1">
+        <button id="IdTweet" class="buttons">Tweet</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button id="IdLogout" class="buttons">Logout</button>
+        <div id="TweetBox" style="display:none;">
+        <input type="text" id="TBox" placeholder="Enter message upto 140 characters"></input>
+        <input  type="submit" class="buttons" id="Tbutton" onclick="f1()" value="Submit"></input>
+    </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $("#IdLogout").click(function(){
+        window.location.href = 'http://localhost:' + location.port + '/Tweet/logout';
+    });
+    $("#IdTweet").click(function(){
+        $("#TBox").val('');
+        $("#TweetBox").css("display","block");
+    });
+    
+    function f1() {
+        var txt = document.getElementById('TBox').value;
+        if(txt.length <= 140){
+            $.ajax({
+                url: 'http://localhost:' + location.port + '/Tweet/int/',
+                data: {message:txt, page:'page1'},
+                type: "get",
+            });
+            setTimeout(function(){location.reload();}, 2000);
+        }
+        else {
+            alert("Enter message withdin 140 characters");
+        }
+    };
+</script>
+</html>

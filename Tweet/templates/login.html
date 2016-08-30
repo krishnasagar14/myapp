@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>Tweet Login Page</title>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<style>
+#IdLogin {
+    background-color:#55ACEE;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    float:center;
+}
+h2 {
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<h2>Twitter Application</h2>
+<button id="IdLogin">Twitter Login</button>
+</body>
+<script type="text/javascript">
+    $("#IdLogin").click(function(){
+        window.location.href = 'http://localhost:' + location.port + '/Tweet/login';
+    });
+</script>
+</html>
