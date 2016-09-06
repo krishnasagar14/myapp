@@ -40,8 +40,14 @@ def twitter_authenticated(request):
     
     user = authenticate(username=access_token['screen_name'], password=access_token['oauth_token_secret'])
     request.session['screen_name'] = access_token['screen_name']
-    login(request, user)
-    return HttpResponseRedirect('/Tweet/home')
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            return HttpResponseRedirect('/Tweet/home')
+        else:
+            return render(request,'error.html', {'error':'User not authenticated. User account may not be present'})
+    else:
+        return render(request,'error.html', {'error':'User not authenticated. Username or passwork is invalid'})
 
 @login_required(login_url='/Tweet/login/')
 def home_page(request):
